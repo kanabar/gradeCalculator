@@ -1,10 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <title>Grade Calculator</title>
 </head>
 <body>
-  <h2>Welcome</h2>
-  <p>This is a placeholder for the grade calculator.</p>
+  <h2>Grade Calculator</h2>
+  <label for="score">Enter score:</label>
+  <input type="number" id="score" step="0.01">
+  <button id="calculateBtn">Calculate Grade</button>
+  <p id="gradeOutput"></p>
+  <script>
+    function toLetterGrade(score) {
+      if (score >= 95 && score <= 100) {
+        return 'A';
+      } else if (score >= 90) {
+        return 'A-';
+      } else if (score >= 85) {
+        return 'B+';
+      } else if (score >= 80) {
+        return 'B';
+      } else if (score >= 75) {
+        return 'B-';
+      } else if (score >= 70) {
+        return 'C+';
+      } else if (score >= 65) {
+        return 'C';
+      } else if (score >= 60) {
+        return 'D';
+      } else if (score < 60) {
+        return 'F';
+      } else {
+        return 'Invalid input';
+      }
+    }
+
+    document.getElementById('calculateBtn').addEventListener('click', function() {
+      var score = parseFloat(document.getElementById('score').value);
+      if (isNaN(score)) {
+        document.getElementById('gradeOutput').textContent = 'Please enter a valid number';
+        return;
+      }
+      var grade = toLetterGrade(score);
+      document.getElementById('gradeOutput').textContent = 'Grade: ' + grade;
+    });
+  </script>
 </body>
 </html>
