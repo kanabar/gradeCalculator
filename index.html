@@ -77,6 +77,10 @@
       var grade = toLetterGrade(score);
       document.getElementById('gradeOutput').textContent = 'Grade: ' + grade;
     });
+    function resetForm() {
+  document.getElementById("score").value = "";
+  document.getElementById("gradeOutput").textContent = "";
+}
   </script>
 </body>
 </html>
