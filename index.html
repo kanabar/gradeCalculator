@@ -35,6 +35,14 @@
   <input type="number" id="score" step="0.01">
   <button id="calculateBtn">Calculate Grade</button>
   <p id="gradeOutput"></p>
+  <button onclick="resetForm()">Reset</button>
+
+<script>
+  function resetForm() {
+    document.getElementById("score").value = "";
+    document.getElementById("gradeOutput").textContent = "";
+  }
+</script>
   <script>
     function toLetterGrade(score) {
       if (score >= 95 && score <= 100) {
